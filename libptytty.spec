@@ -1,4 +1,5 @@
 Summary:	OS independent and secure pty/tty and utmp/wtmp/lastlog handling
+Summary(pl.UTF-8):	Niezależna od systemu i bezpieczna obsługa pty/tty oraz utmp/wtmp/lastlog
 Name:		libptytty
 Version:	2.0
 Release:	1
@@ -14,21 +15,31 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 libptytty is an offspring of rxvt-unicode that handles
-pty/tty/utmp/wtmp/lastlog handling in mostly OS-independent ways
+pty/tty/utmp/wtmp/lastlog in mostly OS-independent ways.
+
+%description -l pl.UTF-8
+libptytty to projekt potomny rxvt-unicode, obsługujący w sposób w
+większości niezależny od systemu pty/tty/utmp/wtmp/lastlog.
 
 %package devel
-Summary:	Header files for the libptytty library
+Summary:	Header file for the libptytty library
+Summary(pl.UTF-8):	Plik nagłówkowy biblioteki libptytty
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	libstdc++-devel >= 6:4.8.1
 
 %description devel
-Header files for libptytty library.
+Header file for libptytty library.
+
+%description devel -l pl.UTF-8
+Plik nagłówkowy biblioteki libptytty.
 
 %prep
 %setup -q
 
 %build
 %cmake -B build
+
 %{__make} -C build
 
 %install
